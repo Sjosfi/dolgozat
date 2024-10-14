@@ -1,5 +1,7 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Render, Post } from '@nestjs/common';
 import { AppService } from './app.service';
+import { adatokDTO } from './adatokDTO.dto';
+import { Res } from '@nestjs/common';
 
 @Controller()
 export class AppController {
@@ -11,5 +13,17 @@ export class AppController {
     return {
       message: this.appService.getHello()
     };
+  }
+
+  @Get()
+  @Render('kitolt')
+  getKitolt(){
+
+  }
+
+  @Post()
+  @Render('kitolt')
+  postKitolt(@Body adatokDTO:adatokDTO, Res() response: Response){
+
   }
 }
